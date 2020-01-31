@@ -28,13 +28,28 @@ public class Employee extends Person
     {
         super(first, middle, last, homeAddress, phoneNumber, email);
         this.office = office;
+        if (salary < 0)
+        {
+            throw new IllegalArgumentException();
+        }
         this.salary = salary;
         this.hireDate = LocalDate.of(year, month, day);
+
+        // Check if salary is negative, if so throw illegalargument exception
     }
 
     public String toString()
     {
-        String result3 = super.toString() + "Office:\t" + this.office + "\nSalary:\t$" + this.salary + "\nDate Hired:\t" + this.hireDate + "\n";
-        return result3;
+        if (this.hireDate == null)
+        {
+            return super.toString() + "Office:\t" + this.office + "\nSalary:\t$" + this.salary + "\nDate Hired:\t" + null + "\n";
+
+        }
+        else
+            return super.toString() + "Office:\t" + this.office + "\nSalary:\t$" + this.salary + "\nDate Hired:\t"
+                    + this.hireDate.getMonthValue() + "/" + this.hireDate.getDayOfMonth() + "/" + this.hireDate.getYear()+  "\n";
     }
+
+    //String shortFormatDate = this.hireDate.getMonthValue() + "/" + this.hireDate.getDayOfMonth() + "/" + this.hireDate.getYear();
+    //        String result3 = super.toString() + "Office:\t" + this.office + "\nSalary:\t$" + this.salary + "\nDate Hired:\t" + formatDate + "\n";
 }

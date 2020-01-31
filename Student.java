@@ -29,12 +29,12 @@ public class Student extends Person
 
     public boolean isValidLevel(String level1)
     {
-            if (level1.equals("Freshman") || level1.equals("Sophomore") || level1.equals("Junior") || level1.equals("Senior"))
-            {
-                return true;
-            }
-            else
-                throw new IllegalArgumentException();
+        if (level1.equals("Freshman") || level1.equals("Sophomore") || level1.equals("Junior") || level1.equals("Senior"))
+        {
+            return true;
+        }
+        else
+            throw new IllegalArgumentException();
 
     }
 
